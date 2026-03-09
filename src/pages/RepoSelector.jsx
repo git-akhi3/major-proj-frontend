@@ -29,7 +29,7 @@ function RepoSelector() {
     try {
       await api.post(`/repos/sync?repo_id=${repo.repo_id}&user_id=${userId}`);
       setRepoId(repo.repo_id);
-      navigate(`/dashboard?user_id=${userId}&repo_id=${repo.repo_id}`);
+      navigate(`/overview?user_id=${userId}&repo_id=${repo.repo_id}`);
     } catch {
       alert('Failed to sync repository');
     } finally {

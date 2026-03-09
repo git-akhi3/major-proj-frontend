@@ -1,5 +1,5 @@
 import { useEffect, useState, useMemo, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import api from '../services/api';
 import { useSessionParams } from '../hooks/useSessionParams';
 import {
@@ -64,6 +64,14 @@ function Dashboard() {
 
     fetchData();
   }, [userId, repoId, navigate]);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.hash) return;
+    const el = document.querySelector(location.hash);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }, [location.hash]);
 
   const handleTimeRangeChange = useCallback((val) => setTimeRange(val), []);
 
