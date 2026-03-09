@@ -5,7 +5,7 @@ import { clearSession } from '../hooks/useSessionParams';
 function Login() {
   const handleLogin = () => {
     clearSession();
-    window.location.href = 'http://localhost:8000/auth/github';
+    window.location.href = 'https://major-proj-backend-production.up.railway.app/auth/github';
   };
 
   return (
